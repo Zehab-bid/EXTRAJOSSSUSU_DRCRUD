@@ -197,6 +197,7 @@
             this.btnUpdate.TabIndex = 17;
             this.btnUpdate.Text = "Mengubah Data";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
