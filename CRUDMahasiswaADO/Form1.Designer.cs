@@ -169,6 +169,7 @@
             this.btnConnect.TabIndex = 14;
             this.btnConnect.Text = "Membuka Koneksi";
             this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click_1);
             // 
             // btnLoad
             // 
@@ -178,6 +179,7 @@
             this.btnLoad.TabIndex = 15;
             this.btnLoad.Text = "Menampilkan Data";
             this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click_1);
             // 
             // btnInsert
             // 
