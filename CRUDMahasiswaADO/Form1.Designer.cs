@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNama = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbjk = new System.Windows.Forms.ComboBox();
+            this.cmbJK = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpTanggalLahir = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,9 +43,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,16 +91,16 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Jenis Kelamin";
             // 
-            // cmbjk
+            // cmbJK
             // 
-            this.cmbjk.FormattingEnabled = true;
-            this.cmbjk.Items.AddRange(new object[] {
+            this.cmbJK.FormattingEnabled = true;
+            this.cmbJK.Items.AddRange(new object[] {
             "L",
             "P"});
-            this.cmbjk.Location = new System.Drawing.Point(158, 75);
-            this.cmbjk.Name = "cmbjk";
-            this.cmbjk.Size = new System.Drawing.Size(315, 24);
-            this.cmbjk.TabIndex = 6;
+            this.cmbJK.Location = new System.Drawing.Point(158, 75);
+            this.cmbJK.Name = "cmbJK";
+            this.cmbJK.Size = new System.Drawing.Size(315, 24);
+            this.cmbJK.TabIndex = 6;
             // 
             // label5
             // 
@@ -169,7 +169,6 @@
             this.btnConnect.TabIndex = 14;
             this.btnConnect.Text = "Membuka Koneksi";
             this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click_1);
             // 
             // btnLoad
             // 
@@ -180,41 +179,42 @@
             this.btnLoad.Text = "Menampilkan Data";
             this.btnLoad.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnInsert
             // 
-            this.button1.Location = new System.Drawing.Point(539, 78);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 24);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Menambah Data";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnInsert.Location = new System.Drawing.Point(539, 78);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(152, 24);
+            this.btnInsert.TabIndex = 16;
+            this.btnInsert.Text = "Menambah Data";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // button2
+            // btnUpdate
             // 
-            this.button2.Location = new System.Drawing.Point(539, 107);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 24);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Mengubah Data";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(539, 107);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(152, 24);
+            this.btnUpdate.TabIndex = 17;
+            this.btnUpdate.Text = "Mengubah Data";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnDelete
             // 
-            this.button3.Location = new System.Drawing.Point(539, 137);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 24);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Menghapus Data";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(539, 137);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(152, 24);
+            this.btnDelete.TabIndex = 18;
+            this.btnDelete.Text = "Menghapus Data";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // FormMahasiswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.dataGridView1);
@@ -224,7 +224,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpTanggalLahir);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmbjk);
+            this.Controls.Add(this.cmbJK);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtNama);
             this.Controls.Add(this.label2);
@@ -246,7 +246,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNama;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbjk;
+        private System.Windows.Forms.ComboBox cmbJK;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpTanggalLahir;
         private System.Windows.Forms.Label label3;
@@ -256,9 +256,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 
