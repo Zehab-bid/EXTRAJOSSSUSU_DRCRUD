@@ -204,9 +204,6 @@ namespace CRUDMahasiswaADO
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
 
-
-
-
                     using (SqlCommand cmd = new SqlCommand("sp_UpdateMahasiswa", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -247,11 +244,6 @@ namespace CRUDMahasiswaADO
         {
             try
             {
-                // Pastikan koneksi terbuka sebelum eksekusi
-                if (conn.State == System.Data.ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
 
                 DialogResult resultConfirm = MessageBox.Show(
                     "Yakin ingin menghapus data?",
@@ -261,26 +253,30 @@ namespace CRUDMahasiswaADO
 
                 if (resultConfirm == DialogResult.Yes)
                 {
-                    using (SqlCommand cmd = new SqlCommand("sp_DeleteMahasiswa", conn))
+                    using (SqlConnection conn = new SqlConnection(connectionString))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.Add("@NIM", SqlDbType.Char, 11).Value = txtNIM.Text;
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
+                        using (SqlCommand cmd = new SqlCommand("sp_DeleteMahasiswa", conn))
                         {
-                            MessageBox.Show("Data berhasil dihapus");
-                            ClearForm();
-                            btnLoad.PerformClick(); // Refresh tampilan DataGridView
-                        }
-                        else
-                        {
-                            MessageBox.Show("Data tidak ditemukan");
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            cmd.Parameters.Add("@NIM", SqlDbType.Char, 11).Value = txtNIM.Text;
+
+                            conn.Open();
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Data berhasil dihapus");
+                                ClearForm();
+                                btnLoad.PerformClick(); // Refresh tampilan DataGridView
+                            }
+                            else
+                            {
+                                MessageBox.Show("Data tidak ditemukan");
+                            }
                         }
                     }
-                  
                 }
             }
             catch (Exception ex)
@@ -418,8 +414,6 @@ namespace CRUDMahasiswaADO
             HitungTotal(); // <- tambahkan ini
         }
 
-
-
         private void btnTestInjection_Click(object sender, EventArgs e)
         {
             try
@@ -446,5 +440,7 @@ namespace CRUDMahasiswaADO
                 MessageBox.Show(ex.Message);
             }
         }
+
+
     }
 }
