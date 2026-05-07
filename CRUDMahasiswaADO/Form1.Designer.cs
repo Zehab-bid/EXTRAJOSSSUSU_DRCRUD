@@ -32,12 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMahasiswa));
             this.label1 = new System.Windows.Forms.Label();
             this.txtNIM = new System.Windows.Forms.TextBox();
+            this.mahasiswaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dBAkademikADODataSettt = new CRUDMahasiswaADO.DBAkademikADODataSettt();
             this.mahasiswaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBAkademikADODataSet = new CRUDMahasiswaADO.DBAkademikADODataSet();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNama = new System.Windows.Forms.TextBox();
             this.mahasiswaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dBAkademikADODataSettt = new CRUDMahasiswaADO.DBAkademikADODataSettt();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbJK = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.mahasiswaBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.txtAlamat = new System.Windows.Forms.TextBox();
-            this.mahasiswaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.txtKodeProdi = new System.Windows.Forms.TextBox();
             this.mahasiswaBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
@@ -69,12 +69,14 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mahasiswaTableAdapter = new CRUDMahasiswaADO.DBAkademikADODataSetTableAdapters.MahasiswaTableAdapter();
             this.mahasiswaTableAdapter1 = new CRUDMahasiswaADO.DBAkademikADODataSetttTableAdapters.MahasiswaTableAdapter();
+            this.btnTestInjection = new System.Windows.Forms.Button();
+            this.btnResetData = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSettt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSettt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -98,6 +100,16 @@
             this.txtNIM.Name = "txtNIM";
             this.txtNIM.Size = new System.Drawing.Size(315, 22);
             this.txtNIM.TabIndex = 1;
+            // 
+            // mahasiswaBindingSource2
+            // 
+            this.mahasiswaBindingSource2.DataMember = "Mahasiswa";
+            this.mahasiswaBindingSource2.DataSource = this.dBAkademikADODataSettt;
+            // 
+            // dBAkademikADODataSettt
+            // 
+            this.dBAkademikADODataSettt.DataSetName = "DBAkademikADODataSettt";
+            this.dBAkademikADODataSettt.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // mahasiswaBindingSource
             // 
@@ -130,11 +142,6 @@
             // 
             this.mahasiswaBindingSource1.DataMember = "Mahasiswa";
             this.mahasiswaBindingSource1.DataSource = this.dBAkademikADODataSettt;
-            // 
-            // dBAkademikADODataSettt
-            // 
-            this.dBAkademikADODataSettt.DataSetName = "DBAkademikADODataSettt";
-            this.dBAkademikADODataSettt.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label4
             // 
@@ -196,11 +203,6 @@
             this.txtAlamat.Name = "txtAlamat";
             this.txtAlamat.Size = new System.Drawing.Size(315, 45);
             this.txtAlamat.TabIndex = 10;
-            // 
-            // mahasiswaBindingSource2
-            // 
-            this.mahasiswaBindingSource2.DataMember = "Mahasiswa";
-            this.mahasiswaBindingSource2.DataSource = this.dBAkademikADODataSettt;
             // 
             // label6
             // 
@@ -310,7 +312,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(800, 27);
+            this.bindingNavigator1.Size = new System.Drawing.Size(809, 27);
             this.bindingNavigator1.TabIndex = 19;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -326,7 +328,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -336,7 +338,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -345,7 +347,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -354,13 +356,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -375,7 +377,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -383,7 +385,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -392,13 +394,13 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // mahasiswaTableAdapter
             // 
@@ -408,11 +410,35 @@
             // 
             this.mahasiswaTableAdapter1.ClearBeforeFill = true;
             // 
+            // btnTestInjection
+            // 
+            this.btnTestInjection.BackColor = System.Drawing.Color.Crimson;
+            this.btnTestInjection.Location = new System.Drawing.Point(491, 185);
+            this.btnTestInjection.Name = "btnTestInjection";
+            this.btnTestInjection.Size = new System.Drawing.Size(102, 45);
+            this.btnTestInjection.TabIndex = 20;
+            this.btnTestInjection.Text = "TEST";
+            this.btnTestInjection.UseVisualStyleBackColor = false;
+            this.btnTestInjection.Click += new System.EventHandler(this.btnTestInjection_Click);
+            // 
+            // btnResetData
+            // 
+            this.btnResetData.BackColor = System.Drawing.Color.Lime;
+            this.btnResetData.Location = new System.Drawing.Point(639, 187);
+            this.btnResetData.Name = "btnResetData";
+            this.btnResetData.Size = new System.Drawing.Size(102, 41);
+            this.btnResetData.TabIndex = 21;
+            this.btnResetData.Text = "RESET";
+            this.btnResetData.UseVisualStyleBackColor = false;
+            this.btnResetData.Click += new System.EventHandler(this.btnResetData_Click);
+            // 
             // FormMahasiswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(809, 445);
+            this.Controls.Add(this.btnResetData);
+            this.Controls.Add(this.btnTestInjection);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -435,12 +461,12 @@
             this.Name = "FormMahasiswa";
             this.Text = "Form Data Mahasiswa";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSettt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSettt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
@@ -492,6 +518,8 @@
         private System.Windows.Forms.BindingSource mahasiswaBindingSource4;
         private System.Windows.Forms.BindingSource mahasiswaBindingSource2;
         private System.Windows.Forms.BindingSource mahasiswaBindingSource3;
+        private System.Windows.Forms.Button btnTestInjection;
+        private System.Windows.Forms.Button btnResetData;
     }
 }
 
