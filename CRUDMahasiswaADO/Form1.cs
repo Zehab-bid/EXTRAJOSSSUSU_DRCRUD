@@ -408,6 +408,30 @@ namespace CRUDMahasiswaADO
             }
         }
 
+        private void LoadData()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("sp_GetMahasiswa", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        dtMahasiswa = new DataTable();
+                        da.Fill(dtMahasiswa);
+
+                        bindingSource.DataSource = dtMahasiswa;
+                        dataGridView1.DataSource = bindingSource;
+
+                        BindControls();
+                    }
+                }
+            }
+
+            HitungTotal(); // <- tambahkan ini
+        }
+
         private void btnTestInjection_Click(object sender, EventArgs e)
         {
             try
