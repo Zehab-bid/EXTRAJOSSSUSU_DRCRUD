@@ -61,34 +61,7 @@ namespace CRUDMahasiswaADO
             LoadData();
         }
 
-        private void LoadData()
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-
-                    string query = "SELECT * FROM vwMahasiswaPublic";
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
-                    {
-                        dtMahasiswa = new DataTable();
-                        da.Fill(dtMahasiswa);
-
-                        bindingSource.DataSource = dtMahasiswa;
-
-                        dataGridView1.DataSource = bindingSource;
-
-                        BindControls();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Gagal load data: " + ex.Message);
-            }
-        }
+       
         private void BindControls()
         {
             txtNIM.DataBindings.Clear();
@@ -264,6 +237,7 @@ namespace CRUDMahasiswaADO
         {
             try
             {
+                // Pastikan koneksi terbuka sebelum eksekusi
                 if (conn.State == System.Data.ConnectionState.Closed)
                 {
                     conn.Open();
@@ -277,27 +251,35 @@ namespace CRUDMahasiswaADO
 
                 if (resultConfirm == DialogResult.Yes)
                 {
-                    string query = "DELETE FROM Mahasiswa WHERE NIM = @NIM";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@NIM", txtNIM.Text);
-
-                    int result = cmd.ExecuteNonQuery();
-
-                    if (result > 0)
+                    using (SqlCommand cmd = new SqlCommand("sp_DeleteMahasiswa", conn))
                     {
-                        MessageBox.Show("Data berhasil dihapus");
-                        ClearForm();
-                        btnLoad.PerformClick();
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.Add("@NIM", SqlDbType.Char, 11).Value = txtNIM.Text;
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Data berhasil dihapus");
+                            ClearForm();
+                            btnLoad.PerformClick(); // Refresh tampilan DataGridView
+                        }
+                        else
+                        {
+                            MessageBox.Show("Data tidak ditemukan");
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Data tidak ditemukan");
-                    }
+                  
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+            }
+            finally
+            {
+               
             }
         }
 
