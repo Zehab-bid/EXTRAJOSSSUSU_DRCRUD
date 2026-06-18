@@ -15,6 +15,9 @@ namespace CRUDMahasiswaADO
     {
         DAL dbLogic = new DAL();
 
+        string prodi;
+        DateTime tglmasuk;
+
         static string connectionString = "Data Source=DESKTOP-FHLKCTQ\\SEHAB;Initial Catalog=DBAkademikADO;User ID=sa;Password=123;";
         SqlConnection conn = new SqlConnection(connectionString);
         SqlDataAdapter da;
@@ -25,6 +28,8 @@ namespace CRUDMahasiswaADO
         {
             InitializeComponent();
         }
+
+
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -62,6 +67,7 @@ namespace CRUDMahasiswaADO
             }
 
         }
+
 
         private void btnLoad_Click(object sender, EventArgs e)
         {

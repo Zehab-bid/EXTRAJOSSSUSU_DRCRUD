@@ -145,9 +145,11 @@ namespace CRUDMahasiswaADO
         }
         private void btnDataMahasiswa_Click(object sender, EventArgs e)
         {
-            Form1 frm1 = new Form1();
+            FormMahasiswa frm1 = new FormMahasiswa();
             frm1.Show();
             this.Hide();
         }
+
+
     }
 }

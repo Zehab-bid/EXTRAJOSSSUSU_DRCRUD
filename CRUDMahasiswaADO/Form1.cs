@@ -110,7 +110,7 @@ namespace CRUDMahasiswaADO
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            dataGridView1.CellClick += dataGridView1_CellContentClick;
+            dataGridView1.CellClick += dataGridView1_CellClick;
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -247,6 +247,22 @@ namespace CRUDMahasiswaADO
         private void btnConnect_Click_1(object sender, EventArgs e)
         {
             ConnectDatabase();
+        }
+
+        private void ConnectDatabase()
+        {
+            try
+            {
+                if (conn.State == System.Data.ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                MessageBox.Show("Koneksi berhasil");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Koneksi gagal: " + ex.Message);
+            }
         }
 
         private void btnLoad_Click_1(object sender, EventArgs e)
