@@ -242,7 +242,7 @@ namespace CRUDMahasiswaADO
             txtNama.Clear();
             cmbJK.SelectedIndex = -1;
             txtAlamat.Clear();
-            txtKodeProdi.Clear();
+            txtpKodeProdi.Clear();
             dtpTanggalLahir.Value = DateTime.Now;
             fotoMhs.Image = null;
             txtNIM.Focus();
@@ -312,7 +312,7 @@ namespace CRUDMahasiswaADO
                 btnImpDb.Enabled = false;
                 btnInsert.Enabled = true;
                 btnUpdate.Enabled = true;
-                btnDelete.Enabled = false;
+                btnDelete.Enabled = true;
                 btnCari.Enabled = true;
                 btnLoad.Enabled = true;
                 btnResetData.Enabled = true;
