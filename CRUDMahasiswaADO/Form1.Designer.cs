@@ -80,7 +80,7 @@
             this.btnImpDb = new System.Windows.Forms.Button();
             this.btnUpload = new System.Windows.Forms.Button();
             this.fotoMhs = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnCari = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBAkademikADODataSettt)).BeginInit();
@@ -490,6 +490,7 @@
             this.btnImpExcel.TabIndex = 24;
             this.btnImpExcel.Text = "Import form Excel";
             this.btnImpExcel.UseVisualStyleBackColor = true;
+            this.btnImpExcel.Click += new System.EventHandler(this.btnImpExcel_Click);
             // 
             // btnImpDb
             // 
@@ -499,6 +500,7 @@
             this.btnImpDb.TabIndex = 25;
             this.btnImpDb.Text = "Import to Database";
             this.btnImpDb.UseVisualStyleBackColor = true;
+            this.btnImpDb.Click += new System.EventHandler(this.btnImpDb_Click);
             // 
             // btnUpload
             // 
@@ -508,6 +510,7 @@
             this.btnUpload.TabIndex = 26;
             this.btnUpload.Text = "Upload Gambar";
             this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // fotoMhs
             // 
@@ -517,14 +520,15 @@
             this.fotoMhs.TabIndex = 27;
             this.fotoMhs.TabStop = false;
             // 
-            // button5
+            // btnRefresh
             // 
-            this.button5.Location = new System.Drawing.Point(542, 229);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 28;
-            this.button5.Text = "Refresh";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnRefresh.Location = new System.Drawing.Point(542, 229);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.TabIndex = 28;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnLoad_Click_1);
             // 
             // btnCari
             // 
@@ -541,7 +545,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 592);
             this.Controls.Add(this.btnCari);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.fotoMhs);
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.btnImpDb);
@@ -638,7 +642,7 @@
         private System.Windows.Forms.Button btnImpDb;
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.PictureBox fotoMhs;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnCari;
     }
 }

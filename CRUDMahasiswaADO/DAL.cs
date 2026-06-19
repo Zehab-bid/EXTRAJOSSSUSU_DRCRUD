@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CRUDMahasiswaADO
 {
@@ -33,7 +34,7 @@ namespace CRUDMahasiswaADO
             SqlCommand cmd = new SqlCommand("sp_CountMahasiswa", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            SqlParameter outputParam = new SqlParameter("@pCount", SqlDbType.Int);
+            SqlParameter outputParam = new SqlParameter("@Total", SqlDbType.Int);
             outputParam.Direction = ParameterDirection.Output;
 
             cmd.Parameters.Add(outputParam);
@@ -71,6 +72,7 @@ namespace CRUDMahasiswaADO
             try
             {
                 SqlCommand command = new SqlCommand("sp_InsertMahasiswa", conn);
+                command.Transaction = trans;
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.AddWithValue("pNIM", nim);
@@ -78,7 +80,7 @@ namespace CRUDMahasiswaADO
                 command.Parameters.AddWithValue("pAlamat", alamat);
                 command.Parameters.AddWithValue("pTanggalLahir", tanggallahir);
                 command.Parameters.AddWithValue("pJenisKelamin", jenisKelamin);
-                command.Parameters.AddWithValue("pNmProdi", kodeProdi);
+                command.Parameters.AddWithValue("pKodeProdi", kodeProdi);
                 command.Parameters.AddWithValue("pFoto", foto);
 
                 command.ExecuteNonQuery();
@@ -87,6 +89,8 @@ namespace CRUDMahasiswaADO
             catch (Exception ex)
             {
                 trans.Rollback();
+                // TAMBAHKAN BARIS INI SEMENTARA UNTUK MELIHAT ERROR ASLINYA
+                MessageBox.Show("Alasan database menolak: " + ex.Message);
             }
             finally
             {
@@ -108,7 +112,7 @@ namespace CRUDMahasiswaADO
             command.Parameters.AddWithValue("pAlamat", alamat);
             command.Parameters.AddWithValue("pJenisKelamin", jenisKelamin);
             command.Parameters.AddWithValue("pTanggalLahir", tanggallahir);
-            command.Parameters.AddWithValue("pNmProdi", kodeProdi);
+            command.Parameters.AddWithValue("pKodeProdi", kodeProdi);
             command.Parameters.AddWithValue("pFoto", foto);
 
             command.CommandType = CommandType.StoredProcedure;

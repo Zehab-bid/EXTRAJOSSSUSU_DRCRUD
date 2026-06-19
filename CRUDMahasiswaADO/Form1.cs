@@ -175,10 +175,15 @@ namespace CRUDMahasiswaADO
             {
                 byte[] ConvertImageToBytes(PictureBox pb)
                 {
-                    using (MemoryStream ms = new MemoryStream())
+                    if (pb.Image == null) return null;
+
+                    using (Bitmap bmp = new Bitmap(pb.Image))
                     {
-                        pb.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        return ms.ToArray();
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            return ms.ToArray();
+                        }
                     }
                 }
 
@@ -267,7 +272,8 @@ namespace CRUDMahasiswaADO
 
         private void btnLoad_Click_1(object sender, EventArgs e)
         {
-            
+            LoadData();
+            ClearForm();
         }
 
         private void HitungTotal()
@@ -420,6 +426,20 @@ namespace CRUDMahasiswaADO
                         }
                     }
                 }
+            }
+        }
+
+        private void txtCari_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // Menyaring data di DataGridView berdasarkan NIM atau Nama
+                bindingSource.Filter = "NIM LIKE '%" + txtNIM.Text + "%' OR Nama LIKE '%" + txtNIM.Text + "%'";
+            }
+            catch (Exception ex)
+            {
+                SimpanLog(ex.Message);
+                MessageBox.Show("Gagal melakukan pencarian: " + ex.Message);
             }
         }
 
