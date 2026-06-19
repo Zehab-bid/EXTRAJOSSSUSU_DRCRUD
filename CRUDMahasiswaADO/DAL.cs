@@ -127,7 +127,7 @@ namespace CRUDMahasiswaADO
                 conn.Open();
             }
             SqlCommand cmd = new SqlCommand("sp_DeleteMahasiswa", conn);
-            cmd.Parameters.AddWithValue("pNIM", nim);
+            cmd.Parameters.AddWithValue("NIM", nim);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.ExecuteNonQuery();
