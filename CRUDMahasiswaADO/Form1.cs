@@ -234,10 +234,9 @@ namespace CRUDMahasiswaADO
             }
         }
 
-
-
         private void ClearForm()
         {
+            bindingSource.Filter = string.Empty;
             txtNIM.Enabled = true;
             txtNIM.Clear();
             txtNama.Clear();
