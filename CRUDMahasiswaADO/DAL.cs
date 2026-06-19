@@ -151,7 +151,7 @@ namespace CRUDMahasiswaADO
             cmdInsert.ExecuteNonQuery();
         }
 
-        public void testInjection(string nim)
+        public void testInject(string nim)
         {
             if (conn.State == ConnectionState.Closed)
             {
