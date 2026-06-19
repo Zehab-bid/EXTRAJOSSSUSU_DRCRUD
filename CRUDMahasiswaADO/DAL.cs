@@ -151,7 +151,7 @@ namespace CRUDMahasiswaADO
             cmdInsert.ExecuteNonQuery();
         }
 
-        public void testInject(string nim)
+        public void testInjection(string nim)
         {
             if (conn.State == ConnectionState.Closed)
             {
@@ -189,7 +189,7 @@ namespace CRUDMahasiswaADO
                 conn.Open();
             }
 
-            SqlCommand cmd = new SqlCommand("sp_LogMessagee", conn);
+            SqlCommand cmd = new SqlCommand("sp_LogMessage", conn);
 
             cmd.Parameters.AddWithValue("psn", message);
             cmd.CommandType = CommandType.StoredProcedure;
