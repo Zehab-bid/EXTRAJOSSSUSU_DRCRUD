@@ -296,6 +296,10 @@ namespace CRUDMahasiswaADO
             {
                 bindingSource.DataSource = dbLogic.GetMhs();
                 dataGridView1.DataSource = bindingSource;
+
+                bindingNavigator1.BindingSource = bindingSource;
+                BindControls();
+
                 DataGridViewImageColumn fotoColumn = (DataGridViewImageColumn)dataGridView1.Columns["Foto"];
                 fotoColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
