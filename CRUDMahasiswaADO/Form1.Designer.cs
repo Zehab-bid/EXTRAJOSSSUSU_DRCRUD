@@ -34,7 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMahasiswa));
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNIM = new System.Windows.Forms.TextBox();
+            this.txtCari = new System.Windows.Forms.TextBox();
             this.mahasiswaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dBAkademikADODataSettt = new CRUDMahasiswaADO.DBAkademikADODataSettt();
             this.mahasiswaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -105,13 +105,13 @@
             this.label1.Text = "NIM";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // txtNIM
+            // txtCari
             // 
-            this.txtNIM.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource2, "NIM", true));
-            this.txtNIM.Location = new System.Drawing.Point(159, 37);
-            this.txtNIM.Name = "txtNIM";
-            this.txtNIM.Size = new System.Drawing.Size(315, 22);
-            this.txtNIM.TabIndex = 1;
+            this.txtCari.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource2, "NIM", true));
+            this.txtCari.Location = new System.Drawing.Point(159, 37);
+            this.txtCari.Name = "txtCari";
+            this.txtCari.Size = new System.Drawing.Size(315, 22);
+            this.txtCari.TabIndex = 1;
             // 
             // mahasiswaBindingSource2
             // 
@@ -571,7 +571,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtNama);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtNIM);
+            this.Controls.Add(this.txtCari);
             this.Controls.Add(this.label1);
             this.Name = "FormMahasiswa";
             this.Text = "Form Data Mahasiswa";
@@ -596,7 +596,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNIM;
+        private System.Windows.Forms.TextBox txtCari;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNama;
         private System.Windows.Forms.Label label4;
