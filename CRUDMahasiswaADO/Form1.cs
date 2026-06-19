@@ -52,14 +52,14 @@ namespace CRUDMahasiswaADO
        
         private void BindControls()
         {
-            txtCari.DataBindings.Clear();
+            txtNIM.DataBindings.Clear();
             txtNama.DataBindings.Clear();
             cmbJK.DataBindings.Clear();
             dtpTanggalLahir.DataBindings.Clear();
             txtAlamat.DataBindings.Clear();
             txtKodeProdi.DataBindings.Clear();
 
-            txtCari.DataBindings.Add("Text", bindingSource, "NIM");
+            txtNIM.DataBindings.Add("Text", bindingSource, "NIM");
             txtNama.DataBindings.Add("Text", bindingSource, "Nama");
             cmbJK.DataBindings.Add("Text", bindingSource, "JenisKelamin");
             dtpTanggalLahir.DataBindings.Add("Value", bindingSource, "TanggalLahir");
@@ -132,7 +132,7 @@ namespace CRUDMahasiswaADO
                 }
 
                 byte[] imgBytes = ConvertImageToBytes(fotoMhs);
-                dbLogic.InsertMhs(txtCari.Text, txtNama.Text, txtAlamat.Text, cmbJK.Text, dtpTanggalLahir.Value.Date, txtKodeProdi.Text, imgBytes);
+                dbLogic.InsertMhs(txtNIM.Text, txtNama.Text, txtAlamat.Text, cmbJK.Text, dtpTanggalLahir.Value.Date, txtKodeProdi.Text, imgBytes);
                 MessageBox.Show("Data mahasiswa berhasil ditambahkan");
                 ClearForm();
                 LoadData();
@@ -188,7 +188,7 @@ namespace CRUDMahasiswaADO
                 }
 
                 byte[] imgBytes = ConvertImageToBytes(fotoMhs);
-                dbLogic.UpdateMhs(txtCari.Text, txtNama.Text, txtAlamat.Text, cmbJK.Text, dtpTanggalLahir.Value.Date, txtKodeProdi.Text, imgBytes);
+                dbLogic.UpdateMhs(txtNIM.Text, txtNama.Text, txtAlamat.Text, cmbJK.Text, dtpTanggalLahir.Value.Date, txtKodeProdi.Text, imgBytes);
                 MessageBox.Show("Data mahasiswa berhasil diubah");
                 ClearForm();
                 btnLoad.PerformClick();
@@ -216,7 +216,7 @@ namespace CRUDMahasiswaADO
                     MessageBoxIcon.Question);
                 if (dg == DialogResult.Yes)
                 {
-                    dbLogic.DeleteMhs(txtCari.Text);
+                    dbLogic.DeleteMhs(txtNIM.Text);
                     MessageBox.Show("Data mahasiswa berhasil dihapus");
                     ClearForm();
                     btnLoad.PerformClick();
@@ -238,15 +238,15 @@ namespace CRUDMahasiswaADO
 
         private void ClearForm()
         {
-            txtCari.Enabled = true;
-            txtCari.Clear();
+            txtNIM.Enabled = true;
+            txtNIM.Clear();
             txtNama.Clear();
             cmbJK.SelectedIndex = -1;
             txtAlamat.Clear();
             txtKodeProdi.Clear();
             dtpTanggalLahir.Value = DateTime.Now;
             fotoMhs.Image = null;
-            txtCari.Focus();
+            txtNIM.Focus();
         }
 
         private void btnConnect_Click_1(object sender, EventArgs e)
@@ -326,7 +326,7 @@ namespace CRUDMahasiswaADO
         {
             try
             {
-                dbLogic.testInject(txtCari.Text);
+                dbLogic.testInject(txtNIM.Text);
 
                 LoadData();
             }
@@ -355,7 +355,7 @@ namespace CRUDMahasiswaADO
             if (e.RowIndex >= 0)
             {
                 DataRow row = ((DataRowView)bindingSource[e.RowIndex]).Row;
-                txtCari.Text = row[0].ToString();
+                txtNIM.Text = row[0].ToString();
                 txtNama.Text = row[1].ToString();
                 cmbJK.Text = row[2].ToString();
                 dtpTanggalLahir.Value = Convert.ToDateTime(row[3]);
@@ -376,7 +376,7 @@ namespace CRUDMahasiswaADO
                     fotoMhs.Image = null;
                 }
 
-                txtCari.Enabled = false;
+                txtNIM.Enabled = false;
             }
         }
 
@@ -429,19 +429,7 @@ namespace CRUDMahasiswaADO
             }
         }
 
-        private void txtCari_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                // Menyaring data di DataGridView berdasarkan NIM atau Nama
-                bindingSource.Filter = "NIM LIKE '%" + txtCari.Text + "%' OR Nama LIKE '%" + txtCari.Text + "%'";
-            }
-            catch (Exception ex)
-            {
-                SimpanLog(ex.Message);
-                MessageBox.Show("Gagal melakukan pencarian: " + ex.Message);
-            }
-        }
+       
 
         private void btnImpDb_Click(object sender, EventArgs e)
         {
@@ -509,5 +497,29 @@ namespace CRUDMahasiswaADO
             }
         }
 
+        private void btnCari_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtNIM.Text))
+                {
+                    MessageBox.Show("Ketik NIM atau Nama yang ingin dicari di kotak NIM terlebih dahulu!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bindingSource.Filter = string.Empty;
+                    return;
+                }
+
+                bindingSource.Filter = "NIM LIKE '%" + txtNIM.Text + "%' OR Nama LIKE '%" + txtNIM.Text + "%'";
+
+                if (bindingSource.Count == 0)
+                {
+                    MessageBox.Show("Data tidak ditemukan.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                SimpanLog(ex.Message);
+                MessageBox.Show("Gagal melakukan pencarian: " + ex.Message);
+            }
+        }
     }
 }
