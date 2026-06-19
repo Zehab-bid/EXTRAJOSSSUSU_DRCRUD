@@ -392,6 +392,7 @@ namespace CRUDMahasiswaADO
             {
                 fotoMhs.Image = Image.FromFile(ofd.FileName);
                 fotoMhs.SizeMode = PictureBoxSizeMode.StretchImage;
+
             }
         }
 
