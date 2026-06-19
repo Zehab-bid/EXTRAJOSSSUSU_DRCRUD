@@ -312,7 +312,7 @@ namespace CRUDMahasiswaADO
                 btnImpDb.Enabled = false;
                 btnInsert.Enabled = true;
                 btnUpdate.Enabled = true;
-                btnDelete.Enabled = true;
+                btnDelete.Enabled = false;
                 btnCari.Enabled = true;
                 btnLoad.Enabled = true;
                 btnResetData.Enabled = true;
@@ -360,7 +360,7 @@ namespace CRUDMahasiswaADO
                 DataRow row = ((DataRowView)bindingSource[e.RowIndex]).Row;
                 txtNIM.Text = row[0].ToString();
                 txtNama.Text = row[1].ToString();
-                cmbJK..Text = row[2].ToString();
+                cmbJK.Text = row[2].ToString();
                 dtpTanggalLahir.Value = Convert.ToDateTime(row[3]);
                 txtAlamat.Text = row[4].ToString();
                 txtKodeProdi.Text = row[7].ToString();
