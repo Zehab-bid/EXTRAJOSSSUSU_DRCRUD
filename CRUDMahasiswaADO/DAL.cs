@@ -189,7 +189,7 @@ namespace CRUDMahasiswaADO
                 conn.Open();
             }
 
-            SqlCommand cmd = new SqlCommand("sp_LogMessage", conn);
+            SqlCommand cmd = new SqlCommand("sp_LogMessagee", conn);
 
             cmd.Parameters.AddWithValue("psn", message);
             cmd.CommandType = CommandType.StoredProcedure;
